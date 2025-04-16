@@ -11,24 +11,9 @@
         <img src="IMG/tds_background.png" alt="That Drawing Show Background">
     </div>
     <div class="foreground-layer-1">
-        <img src="IMG/tds_foregrounds.png" alt="That Drawing Show Foreground">
+        <img src="IMG/tds_foreground.png" alt="That Drawing Show Foreground">
     </div>
 
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const foreground = document.querySelector('.foreground-layer-1');
-            let lastScrollY = window.scrollY;
-            const totalScroll = document.body.scrollHeight - window.innerHeight;
-
-            window.addEventListener('scroll', () => {
-                const scrollPercent = window.scrollY / totalScroll;
-                const translateY = -75 + (scrollPercent * 175); // Start at -75vh, move up to -250vh
-                const opacity = scrollPercent <= 0.33 ? 1 : Math.max(0, 1 - ((scrollPercent - 0.33) * 3));
-                
-                foreground.style.transform = `translateY(${translateY}vh)`;
-                foreground.style.opacity = opacity;
-            });
-        });
-    </script>
+    <script src="JS/scroll-animation.js"></script>
 </body>
 </html>

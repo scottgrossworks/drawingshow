@@ -1,10 +1,20 @@
 /* Base styles */
+:root {
+    --layer-background: 1;
+    --layer-foreground: 2;
+}
+
+html {
+    height: 100%;
+}
+
 body {
     background-color: black;
     margin: 0;
     padding: 0;
-    min-height: 300vh; /* Make page scrollable */
+    min-height: 300vh;
     overflow-x: hidden;
+    position: relative;
 }
 
 /* Background Layer 0 */
@@ -14,30 +24,40 @@ body {
     left: 0;
     width: 100%;
     height: 100vh;
-    z-index: 0;
+    z-index: var(--layer-background);
+    transform: translate3d(0, 0, 0);  /* Hardware acceleration */
+    transition: opacity 0.15s ease-out;  /* Faster opacity transition */
+    will-change: opacity;
 }
 
 .background-layer-0 img {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    -webkit-backface-visibility: hidden;  /* Prevent flickering */
+    backface-visibility: hidden;
 }
 
 /* Foreground Layer 1 */
 .foreground-layer-1 {
     position: fixed;
-    bottom: -75vh; /* Initially show 25% from bottom */
+    bottom: 0;
     left: 0;
     width: 100%;
     height: 100vh;
-    z-index: 1;
-    will-change: transform, opacity;
+    z-index: var(--layer-foreground);
+    will-change: transform;
+    transform: translateY(70vh) translate3d(0, 0, 0);  /* Initially show 30% from bottom + hardware acceleration */
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
 }
 
 .foreground-layer-1 img {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
 }
 
 /* Desktop specific styles */
@@ -49,4 +69,8 @@ body {
     }
 }
 
-/* Scroll animation handled by JavaScript */
+/* Prevent selection during scroll */
+* {
+    -webkit-user-select: none;
+    user-select: none;
+}
