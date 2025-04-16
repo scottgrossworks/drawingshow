@@ -5,9 +5,9 @@ class ParallaxScroller {
         this.background = document.querySelector('.background-layer-0');
         
         // Constants
-        this.SCROLL_MULTIPLIER = 1.5;  // Controls scroll sensitivity
+        this.SCROLL_MULTIPLIER = 2.0;  // Increased for faster transition
         this.MOBILE_BREAKPOINT = 768;
-        this.OPACITY_TRIGGER_POINT = -10;  // Trigger opacity change at -10vh
+        this.OPACITY_TRIGGER_POINT = 10;  // Changed to 10vh from top
         
         // State
         this.lastScrollY = window.scrollY;
@@ -74,8 +74,14 @@ class ParallaxScroller {
         const transform = `translateY(${this.currentTranslateY}vh)`;
         this.foreground.style.transform = transform;
 
-        // When foreground is 10vh above the top, fade out background
-        const backgroundOpacity = this.currentTranslateY <= this.OPACITY_TRIGGER_POINT ? 0 : 1;
+        // Calculate opacity based on position
+        const foregroundOpacity = this.currentTranslateY <= this.OPACITY_TRIGGER_POINT ? 
+            Math.max(0, (this.OPACITY_TRIGGER_POINT - this.currentTranslateY) / this.OPACITY_TRIGGER_POINT) : 1;
+        this.foreground.style.opacity = foregroundOpacity;
+
+        // When foreground reaches trigger point, fade out background more quickly
+        const backgroundOpacity = this.currentTranslateY <= this.OPACITY_TRIGGER_POINT ? 
+            Math.max(0, this.currentTranslateY / this.OPACITY_TRIGGER_POINT) : 1;
         this.background.style.opacity = backgroundOpacity;
     }
 
