@@ -1,0 +1,68 @@
+
+@font-face {
+    font-family: 'SpecialGothic';
+    src: url('../FONTS/SpecialGothicCondensedOne-Regular.ttf') format('truetype');
+}
+
+
+
+span.text_intro {
+    background-color: black;
+    font-family: "SpecialGothic";
+    width:60%;
+    
+    position: fixed;
+    text-align: center;
+    padding:10px;
+
+    margin: 11% 20%;
+    font-size: 1.2em;
+    color: goldenrod;
+    
+    z-index: 900;
+
+    border-radius: 8px;
+}
+
+/* Responsive overrides */
+@media screen and (max-width: 460px) {
+
+    span.text_intro {
+       
+        width:75%;
+        
+        margin: auto 8%;
+        font-size: 1.25em;
+    
+        border-radius: 8px;
+    }
+}
+
+
+
+
+@media screen and (min-width: 461px) and (max-width: 600px) {
+    span.text_intro {
+       
+        width:75%;
+        
+        margin: 10% 10%;
+        font-size: 1.4em;
+    
+        border-radius: 8px;
+    }
+}
+
+
+@media screen and (min-width: 601px) {
+    span.text_intro {
+       
+        width:70%;
+        
+        margin: 12% 15% 0 15%;
+    
+        font-size: 1.5em;
+    
+        border-radius: 8px;
+    }
+}

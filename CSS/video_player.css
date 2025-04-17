@@ -1,0 +1,99 @@
+/* CSS/video_player.css */
+
+
+
+/* Container for the video, centered on screen and layered above background */
+#videoContainer {
+    height:auto;
+ 
+    top:60px !important;
+    position: fixed;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: var(--layer-video);
+
+    display: none; /* Shown by JS when ready */
+
+    cursor: pointer;
+}
+
+#randomVideoPlayer {
+    object-position: top;
+    cursor: pointer;
+}
+
+/* Hide built-in browser controls */
+#randomVideoPlayer::-webkit-media-controls,
+#randomVideoPlayer::-moz-media-controls {
+    display: none;
+}
+
+
+
+.video-nav-button {
+    position: absolute;
+    top: 15px;
+    width: 0;
+    height: 0;
+    border-top:    20px solid transparent;
+    border-bottom: 20px solid transparent;
+    cursor:        pointer;
+    z-index:       var(--layer-controls);
+    margin:       -2vw;
+
+    /* add this: */
+    filter: drop-shadow(3px 3px 3px rgba(0,0,0,0.6));
+}
+
+
+#prevBtn {
+    left: -20px;
+    border-right: 20px solid cornflowerblue;
+}
+#nextBtn {
+    right: -20px;
+    border-left: 20px solid cornflowerblue;
+}
+
+/* Foreground overlap */
+.foreground-layer-1 img {
+    position: fixed;
+    top: 60px;
+    width: 100vw;
+    object-fit: cover;
+    z-index: var(--layer-foreground);
+    margin-top: -20vh;
+    transform: none;
+}
+
+/* Responsive overrides */
+@media screen and (max-width: 460px) {
+    #videoContainer,
+    #randomVideoPlayer {
+        width: 75vw !important;
+     
+    }
+}
+
+
+
+
+
+@media screen and (min-width: 461px) and (max-width: 600px) {
+    #videoContainer,
+    #randomVideoPlayer {
+        width: 70vw !important;
+     
+    }
+}
+
+@media screen and (min-width: 601px) {
+    #videoContainer {
+        width: 50vw;
+        
+    }
+    #randomVideoPlayer {
+        width: 100%;
+        
+    }
+}
