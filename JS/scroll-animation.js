@@ -83,10 +83,12 @@ class ParallaxScroller {
             if (this.currentTranslateY <= 0) {
                 // When foreground is at top, keep black overlay at top
                 this.blackOverlay.style.transform = 'translateY(0)';
+
             } else {
                 // Otherwise move black overlay based on its own position
                 const blackOverlayTransform = `translateY(${this.blackOverlayY}vh)`;
                 this.blackOverlay.style.transform = blackOverlayTransform;
+
             }
         }
 
@@ -102,7 +104,7 @@ class ParallaxScroller {
 
     update() {
         const scrollPercent = window.scrollY / this.totalScroll;
-        
+
         // Calculate new position for foreground
         const targetY = 70 - (scrollPercent * 170 * this.SCROLL_MULTIPLIER);
         const delta = targetY - this.currentTranslateY;

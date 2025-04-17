@@ -1,9 +1,13 @@
-/* Base styles */
+/* layout.css */
 :root {
-    --layer-background: 1;
-    --layer-black-overlay: 2;
-    --layer-foreground: 3;
+    --layer-background: 100;
+    --layer-video:150;
+    --layer-black-overlay: 200;
+    --layer-foreground: 300;
+    --layer-controls:400;
+    --layer-text:800;
 }
+
 
 /* Prevent selection during scroll */
 * {
@@ -19,8 +23,12 @@ body {
     background-color: black;
     margin: 0;
     padding: 0;
-    min-height: 300vh;
 }
+
+.background-layer-0 {
+    z-index:var(--layer-background);
+}
+
 
 .background-layer-0 img {
     position: fixed;
@@ -38,7 +46,7 @@ body {
     width: 100%;
     height: 100vh;
     background-color: black;
-    z-index: 2;
+    z-index:var(--layer-black-overlay);
     transform: translateY(120vh);
 }
 
@@ -47,22 +55,40 @@ body {
 .foreground-layer-1 {
     position: fixed;
     width: 100vw;
-    z-index: 3;
+    z-index: var(--layer-foreground)
 }
 
 
 
 .foreground-layer-1 img {
     position: fixed;
-    top: 0;
     width: 100vw;
     object-fit: cover;
 }
 
 
-/* Adjust translateY for wider screens */
-@media screen and (min-width: 651px) {
+
+
+@media screen and (min-width: 461px) and (max-width: 600px) {
     .foreground-layer-1 img {
-        transform: translateY(-15vh);
+        margin-top: -20vh;
     }
 }
+
+
+
+
+@media screen and (min-width: 601px) and (max-width: 650px) {
+    .foreground-layer-1 img {
+        margin-top:-10vh;
+    }
+}
+
+
+
+@media screen and (min-width: 651px) {
+    .foreground-layer-1 img {
+        margin-top:-5vh;
+    }
+}
+

@@ -1,19 +1,21 @@
-<html>
-    <head>
-        <title>That Drawing Show</title>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="icon" href="IMG/favicon.png" type="image/x-icon">
-        <link rel="stylesheet" href="CSS/layout.css" type="text/css">
-        <link rel="stylesheet" href="CSS/header.css" type="text/css">
-    </head>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>That Drawing Show</title>
+    <link rel="icon" href="IMG/favicon.png" type="image/x-icon">
+    <link rel="stylesheet" href="CSS/layout.css" type="text/css">
+    <link rel="stylesheet" href="CSS/text.css" type="text/css">
+    <link rel="stylesheet" href="CSS/header.css" type="text/css">
+
+    <link rel="stylesheet" href="CSS/video_player.css" type="text/css">
+</head>
 <body>
     <header class="header">
         <div class="header-left">
             <div class="hamburger">
-                <span></span>
-                <span></span>
-                <span></span>
+                <span></span><span></span><span></span>
             </div>
             <div class="site-title">
                 <div class="title-wrapper">
@@ -24,15 +26,9 @@
             </div>
         </div>
         <div class="header-right">
-            <a href="#" class="header-icon" title="Instagram">
-                <img src="IMG/IG_logo.svg" alt="Instagram">
-            </a>
-            <a href="#" class="header-icon" title="Email">
-                <img src="IMG/email.svg" alt="Email">
-            </a>
-            <a href="#" class="header-icon" title="Phone">
-                <img src="IMG/phone_1.svg" alt="Phone">
-            </a>
+            <a href="#" class="header-icon" title="Instagram"><img src="IMG/IG_logo.svg" alt="Instagram"></a>
+            <a href="#" class="header-icon" title="Email"><img src="IMG/email.svg" alt="Email"></a>
+            <a href="#" class="header-icon" title="Phone"><img src="IMG/phone_1.svg" alt="Phone"></a>
         </div>
     </header>
 
@@ -40,10 +36,39 @@
         <img src="IMG/tds_background.png" alt="That Drawing Show Background">
     </div>
     <div class="black-overlay"></div>
-    <div class="foreground-layer-1">
-        <img src="IMG/tds_foreground.png" alt="That Drawing Show Foreground">
+
+    <div id="videoContainer">
+        <div id="prevBtn" class="video-nav-button"></div>
+        <video id="randomVideoPlayer" muted autoplay playsinline></video>
+        <div id="nextBtn" class="video-nav-button"></div>
     </div>
 
+    <div class="foreground-layer-1">
+ 
+
+        <img src="IMG/tds_foreground.png" alt="That Drawing Show Foreground">
+        <span class="text_intro">
+            That Drawing Show is premium<a style='color:white'> caricature entertainment</a> for audiences of all ages.
+        </span>
+    </div>
+
+   
+
     <script src="JS/scroll-animation.js"></script>
+    <script src="JS/video_player.js"></script>
+
+    <script>
+        window.onload = function() {
+          const videoPlayer = document.getElementById('randomVideoPlayer');
+          if (videoPlayer) {
+            videoPlayer.addEventListener('loadedmetadata', () => {
+              // Resize to fit your rules
+              adjustVideoSize();
+              // Autoplay once metadata is ready
+              videoPlayer.play();
+            }, { once: true });
+          }
+        };
+      </script>
 </body>
 </html>
