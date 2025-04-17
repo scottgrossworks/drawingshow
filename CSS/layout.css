@@ -1,7 +1,8 @@
 /* Base styles */
 :root {
     --layer-background: 1;
-    --layer-foreground: 2;
+    --layer-black-overlay: 2;
+    --layer-foreground: 3;
 }
 
 html {
@@ -26,16 +27,28 @@ body {
     height: 100vh;
     z-index: var(--layer-background);
     transform: translate3d(0, 0, 0);  /* Hardware acceleration */
-    transition: opacity 0.15s ease-out;  /* Faster opacity transition */
-    will-change: opacity;
+    will-change: transform;
 }
 
 .background-layer-0 img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    -webkit-backface-visibility: hidden;  /* Prevent flickering */
+    -webkit-backface-visibility: hidden;
     backface-visibility: hidden;
+}
+
+/* Black overlay layer */
+.black-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: black;
+    z-index: var(--layer-black-overlay);
+    transform: translateY(120vh) translate3d(0, 0, 0);  /* Start 20% lower than before */
+    will-change: transform;
 }
 
 /* Foreground Layer 1 */
