@@ -3,6 +3,11 @@
     src: url('../FONTS/SpecialGothicExpandedOne-Regular.ttf') format('truetype');
 }
 
+@font-face {
+    font-family: 'Kaufmann-Bold';
+    src: url('../FONTS/Kaufmann-Bold.ttf') format('truetype');
+}
+
 .header {
     position: fixed;
     top: 0;
@@ -47,10 +52,15 @@
     font-family: 'SpecialGothic', sans-serif;
     color: goldenrod;
     display: flex;
-    flex-direction: column;
+    align-items: center;
     gap: 3px;
-    padding-top:3px;
+    padding-top: 3px;
     height: 50px;
+}
+
+.title-wrapper {
+    display: flex;
+    flex-direction: column;
     justify-content: center;
 }
 
@@ -64,6 +74,16 @@
 .title-main {
     font-size: 24px;
     line-height: 1;
+    text-shadow: 2px 2px 2px rgba(0,0,0,0.5);
+}
+
+.title-author {
+    display: none;
+    color: goldenrod;
+    font-family: 'Kaufmann-Bold', cursive;
+    font-style: oblique;
+    margin: 0 0 -4px 6px;
+    font-size: 22px;
     text-shadow: 2px 2px 2px rgba(0,0,0,0.5);
 }
 
@@ -98,5 +118,11 @@
     }
     .header-right {
         gap: 15px; /* 20px * 0.75 = 15px (25% smaller) */
+    }
+}
+
+@media screen and (min-width: 650px) {
+    .title-author {
+        display: inline-block;
     }
 }
