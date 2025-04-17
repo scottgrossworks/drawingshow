@@ -1,7 +1,5 @@
 /* CSS/video_player.css */
 
-
-
 /* Container for the video, centered on screen and layered above background */
 #videoContainer {
     height:auto;
@@ -28,31 +26,53 @@
     display: none;
 }
 
-
-
 .video-nav-button {
     position: absolute;
-    top: 15px;
+    right: -30px;
     width: 0;
     height: 0;
     border-top:    20px solid transparent;
     border-bottom: 20px solid transparent;
     cursor:        pointer;
     z-index:       var(--layer-controls);
-    margin:       -2vw;
-
-    /* add this: */
+    margin:        0;
     filter: drop-shadow(3px 3px 3px rgba(0,0,0,0.6));
 }
 
-
 #prevBtn {
-    left: -20px;
+    top: 15px;
     border-right: 20px solid cornflowerblue;
 }
+
 #nextBtn {
-    right: -20px;
+    top: 65px;
+    margin-left:6px;
     border-left: 20px solid cornflowerblue;
+}
+
+/* Volume button below nextBtn */
+#volumeBtn {
+    position: absolute;
+    right: -45px;
+    top: 115px;
+    width: 50px;
+    height: 50px;
+    background-image: url('../IMG/tds_mute.svg');
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: 60% 60%;
+    border: none;
+    z-index: var(--layer-controls);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    opacity: 1;
+}
+
+#volumeBtn.unmuted {
+    background-image: url('../IMG/tds_volume.svg');
 }
 
 /* Foreground overlap */
@@ -74,10 +94,6 @@
      
     }
 }
-
-
-
-
 
 @media screen and (min-width: 461px) and (max-width: 600px) {
     #videoContainer,

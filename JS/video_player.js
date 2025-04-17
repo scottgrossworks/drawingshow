@@ -115,3 +115,22 @@ document.addEventListener('DOMContentLoaded', () => {
     videoPlayer.addEventListener('click', togglePlayPause);
     window.addEventListener('resize', adjustVideoSize);
 });
+
+document.addEventListener('DOMContentLoaded', function() {
+    const video = document.getElementById('randomVideoPlayer');
+    const volumeBtn = document.getElementById('volumeBtn');
+    if (video && volumeBtn) {
+        // Ensure video is muted on load
+        video.muted = true;
+        volumeBtn.classList.remove('unmuted');
+        volumeBtn.addEventListener('click', function(e) {
+            e.stopPropagation();
+            video.muted = !video.muted;
+            if (video.muted) {
+                volumeBtn.classList.remove('unmuted');
+            } else {
+                volumeBtn.classList.add('unmuted');
+            }
+        });
+    }
+});
