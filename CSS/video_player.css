@@ -45,7 +45,7 @@
 }
 
 #nextBtn {
-    top: 65px;
+    top: 75px;
     margin-left:6px;
     border-left: 20px solid cornflowerblue;
 }
@@ -88,10 +88,21 @@
 
 /* Responsive overrides */
 @media screen and (max-width: 460px) {
-    #videoContainer,
+    
+    #videoContainer {
+        width:auto;
+        margin:auto 0;
+    }
     #randomVideoPlayer {
-        width: 75vw !important;
-     
+        width: 100vw;
+    }
+
+    .video-nav-button{
+        right: 2px;
+    }
+    #volumeBtn {
+        right: -13px;
+        top: 130px;
     }
 }
 
@@ -101,6 +112,16 @@
         width: 70vw !important;
      
     }
+
+    .video-nav-button{
+        right: 0px;
+    }
+    #volumeBtn {
+        right: -13px;
+        top: 130px;
+    }
+
+
 }
 
 @media screen and (min-width: 601px) {
@@ -110,6 +131,13 @@
     }
     #randomVideoPlayer {
         width: 100%;
-        
+    }
+
+    .video-nav-button{
+        right: -35px;
+    }
+    #volumeBtn {
+        right: -50px;
+        top: 130px;
     }
 }

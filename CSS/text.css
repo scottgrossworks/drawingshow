@@ -22,6 +22,7 @@ span.text_intro {
     z-index: 900;
 
     border-radius: 8px;
+
 }
 
 /* Responsive overrides */
@@ -29,12 +30,13 @@ span.text_intro {
 
     span.text_intro {
        
-        width:75%;
+        width:80%;
+        margin: auto 5%;
+        font-size: 1em;
+        letter-spacing: 0.08em;
+        border-radius: 8px;   
         
-        margin: auto 8%;
-        font-size: 1.25em;
-    
-        border-radius: 8px;
+        transform: translateY(-30px);
     }
 }
 
@@ -50,6 +52,8 @@ span.text_intro {
         font-size: 1.4em;
     
         border-radius: 8px;
+        
+        transform: translateY(-8vw);
     }
 }
 
@@ -57,12 +61,13 @@ span.text_intro {
 @media screen and (min-width: 601px) {
     span.text_intro {
        
-        width:70%;
+        width:60%;
         
-        margin: 12% 15% 0 15%;
-    
+        margin: 12% 20% 0 20%;
+        
         font-size: 1.5em;
     
         border-radius: 8px;
+        transform: translateY(-5vw);
     }
 }
