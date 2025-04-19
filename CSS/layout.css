@@ -68,19 +68,6 @@ body {
 
 
 
-/* Responsive overrides */
-@media screen and (max-width: 460px) {
-    .header-right {
-        margin-right:3px;
-    }
-    .header-right a img {
-        height:90%;
-        width:90%;
-    }
-}
-
-
-
 
 
 @media screen and (min-width: 461px) and (max-width: 600px) {

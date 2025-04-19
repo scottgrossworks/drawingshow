@@ -37,7 +37,7 @@
     height: 45px;
     display: flex;
     flex-direction: column;
-
+    margin-left:3px;
 }
 
 .hamburger span {
