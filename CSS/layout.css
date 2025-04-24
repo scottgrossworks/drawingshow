@@ -200,6 +200,10 @@ html, body {
   .layer-foreground-container {
     width:120vw;
   }
+
+  .foreground-overlay {
+    margin-top:10vh;
+  }
 }
 
 
@@ -208,11 +212,19 @@ html, body {
   .layer-video #videoContainer {
         width: 75%;
     }
+
+    .foreground-overlay {
+      margin-top:0;
+    }
 }
 
 @media screen and (min-width: 800px) {
 
     .layer-video #videoContainer {
         max-width: 800px;
+    }
+
+    .foreground-overlay {
+      margin-top:-5vh;
     }
 }
