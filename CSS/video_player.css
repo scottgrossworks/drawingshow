@@ -1,21 +1,26 @@
-/* CSS/video_player.css */
+/* video_player.css - Styling for video player component */
 
-/* Container for the video, centered on screen and layered above background */
-#videoContainer {
-    height:auto;
- 
-    top:60px !important;
+/* Layer 2: Video Player Layer */
+.layer-video {
     position: fixed;
+    top: 60px;
     left: 50%;
     transform: translateX(-50%);
     z-index: var(--layer-video);
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
 
-    display: none; /* Shown by JS when ready */
-
-    cursor: pointer;
+#videoContainer {
+    position: relative;
+    width: 100%;
+    display: none; /* Will be shown by JS when video is loaded */
 }
 
 #randomVideoPlayer {
+    width: 100%;
+    display: block;
     object-position: top;
     cursor: pointer;
 }
@@ -26,118 +31,66 @@
     display: none;
 }
 
+/* Video controls */
 .video-nav-button {
     position: absolute;
-    right: -30px;
     width: 0;
     height: 0;
-    border-top:    20px solid transparent;
+    border-top: 20px solid transparent;
     border-bottom: 20px solid transparent;
-    cursor:        pointer;
-    z-index:       var(--layer-controls);
-    margin:        0;
+    cursor: pointer;
+    z-index: var(--layer-controls);
     filter: drop-shadow(3px 3px 3px rgba(0,0,0,0.6));
 }
 
+/* Stack controls vertically on the right side */
 #prevBtn {
-    top: 15px;
+    position: absolute;
+    right: 10px;                  /* move to right edge */
+    top: 20px;                    /* first button, near top of video */
+    transform: none;
     border-right: 20px solid cornflowerblue;
 }
 
 #nextBtn {
-    top: 75px;
-    margin-left:6px;
+    position: absolute;
+    right: 10px;
+    top: 80px;                   /* spacing below prevBtn */
+    transform: none;
     border-left: 20px solid cornflowerblue;
 }
 
-/* Volume button below nextBtn */
 #volumeBtn {
     position: absolute;
-    right: -45px;
-    top: 115px;
-    width: 50px;
-    height: 50px;
+    right: 0px;
+    top: 140px;                   /* under nextBtn */
+    width: 40px;
+    height: 40px;
     background-image: url('../IMG/tds_mute.svg');
     background-position: center center;
     background-repeat: no-repeat;
     background-size: 60% 60%;
     border: none;
-    z-index: var(--layer-controls);
     cursor: pointer;
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 0;
-    opacity: 1;
+    filter: drop-shadow(3px 3px 3px rgba(0,0,0,0.6));
 }
 
 #volumeBtn.unmuted {
     background-image: url('../IMG/tds_volume.svg');
 }
 
-/* Foreground overlap */
-.foreground-layer-1 img {
-    position: fixed;
-    top: 60px;
-    width: 100vw;
-    object-fit: cover;
-    z-index: var(--layer-foreground);
-    margin-top: -20vh;
-    transform: none;
-}
-
-/* Responsive overrides */
-@media screen and (max-width: 460px) {
-    
+/* Responsive styles */
+@media screen and (min-width: 451px) {
     #videoContainer {
-        width:auto;
-        margin:auto 0;
-    }
-    #randomVideoPlayer {
-        width: 100vw;
-    }
-
-    .video-nav-button{
-        right: 2px;
-    }
-    #volumeBtn {
-        right: -13px;
-        top: 130px;
+        width: 75%;
     }
 }
 
-@media screen and (min-width: 461px) and (max-width: 600px) {
-    #videoContainer,
-    #randomVideoPlayer {
-        width: 70vw !important;
-     
-    }
-
-    .video-nav-button{
-        right: 0px;
-    }
-    #volumeBtn {
-        right: -13px;
-        top: 130px;
-    }
-
-
-}
-
-@media screen and (min-width: 601px) {
+@media screen and (min-width: 800px) {
     #videoContainer {
-        width: 50vw;
-        
-    }
-    #randomVideoPlayer {
-        width: 100%;
-    }
-
-    .video-nav-button{
-        right: -35px;
-    }
-    #volumeBtn {
-        right: -50px;
-        top: 130px;
+        max-width: 800px;
     }
 }

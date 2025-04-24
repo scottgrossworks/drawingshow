@@ -5,14 +5,32 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>That Drawing Show</title>
     <link rel="icon" href="IMG/favicon.png" type="image/x-icon">
-    <link rel="stylesheet" href="CSS/layout.css" type="text/css">
     <link rel="stylesheet" href="CSS/text.css" type="text/css">
+    <link rel="stylesheet" href="CSS/layout.css" type="text/css">
     <link rel="stylesheet" href="CSS/header.css" type="text/css">
-
     <link rel="stylesheet" href="CSS/video_player.css" type="text/css">
 </head>
 <body>
-    <header class="header">
+    <!-- Layer 0: Base Layer -->
+    <div class="layer-base"></div>
+    
+    <!-- Layer 1: Background Image Layer -->
+    <div class="layer-background">
+        <img src="IMG/tds_background.png" alt="That Drawing Show Background">
+    </div>
+    
+    <!-- Layer 2: Video Player Layer -->
+    <div class="layer-video">
+        <div id="videoContainer">
+            <video id="randomVideoPlayer" muted playsinline></video>
+            <div id="prevBtn" class="video-nav-button"></div>
+            <div id="nextBtn" class="video-nav-button"></div>
+            <div id="volumeBtn" class="video-nav-button"></div>
+        </div>
+    </div>
+    
+    <!-- Layer 3: Header Layer -->
+    <div class="layer-header">
         <div class="header-left">
             <div class="hamburger">
                 <span></span><span></span><span></span>
@@ -30,49 +48,45 @@
             <a href="#" class="header-icon" title="Email"><img src="IMG/email.svg" alt="Email"></a>
             <a href="#" class="header-icon" title="Phone"><img src="IMG/phone_1.svg" alt="Phone"></a>
         </div>
-    </header>
-
-    <div class="background-layer-0">
-        <img src="IMG/tds_background.png" alt="That Drawing Show Background">
     </div>
-    <div class="black-overlay"></div>
+    
+<!-- Layer 4: Foreground + Booking Content -->
+<div class="layer-foreground-container">
 
-    <div id="videoContainer">
-        <video id="randomVideoPlayer" muted autoplay playsinline></video>
-        <div id="prevBtn" class="video-nav-button"></div>
-        <div id="nextBtn" class="video-nav-button"></div>
-        <div id="volumeBtn" class="video-nav-button"></div>
+  <!-- 4a: PNG window -->
+  <div class="foreground-wrapper">
+    <img src="IMG/tds_foreground.png" class="foreground-image" alt="That Drawing Show Foreground">
+
+    <!-- 4b: Overlayed intro text -->
+    <div class="foreground-overlay">
+      <span class="text_intro">
+        <a style='color:white'>That Drawing Show</a>&nbsp;is premium caricature entertainment for audiences of all ages.
+      </span>
+    </div>
+  </div>
+
+  <!-- 4c: All your booking info scrolls here -->
+  <div class="layer-content">
+    <!-- Phone & email at the top -->
+    <h1>310 980 1421</h1>
+    <a href="mailto:scottgrossworks@gmail.com">scottgrossworks@gmail.com</a>
+
+    <!-- Then paste your full bookme_content.txt here in sequence: -->
+
+  </div>
+
+</div>
+
+
+
+    
+    <!-- Layer 5: Footer Layer -->
+    <div class="layer-footer" id="pageFooter">
+        <p><b>All artwork is Copyright &#169; 2025, Scott Gross, all rights reserved and cannot be reproduced for 
+            commercial purposes without written permission.</b></p>
     </div>
 
-    <div class="foreground-layer-1">
- 
-
-        <img src="IMG/tds_foreground.png" alt="That Drawing Show Foreground">
-
-        <span class="text_intro">
-            <a style='color:white'>That Drawing Show</a> is premium caricature entertainment for audiences of all ages.
-        </span>
-
-    </div>
-
-   
-
-
-    <script src="JS/scroll-animation.js"></script>
     <script src="JS/video_player.js"></script>
-
-    <script>
-        window.onload = function() {
-          const videoPlayer = document.getElementById('randomVideoPlayer');
-          if (videoPlayer) {
-            videoPlayer.addEventListener('loadedmetadata', () => {
-              // Resize to fit your rules
-              adjustVideoSize();
-              // Autoplay once metadata is ready
-              videoPlayer.play();
-            }, { once: true });
-          }
-        };
-      </script>
+    <script src="JS/scroll_animation.js"></script>    
 </body>
 </html>
