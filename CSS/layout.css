@@ -120,7 +120,7 @@ html, body {
 /* 8b) Overlayed intro text container */
 .foreground-overlay {
     position: absolute;
-    top: 0;
+    top:0;
     left: 0;
     width: 100%;
     height: 100%; /* Cover the image area */
@@ -159,8 +159,6 @@ html, body {
   box-sizing: border-box;
     background-color: #000; /* Opaque black background */
   
-
-   
     color: white;
     /* This div follows the foreground-wrapper naturally in the flow */
     position: relative; /* To ensure z-indexing works relative to its siblings */
@@ -203,7 +201,7 @@ html, body {
 
 /* Responsive adjustments for video container width (should be in video_player.css) */
 /* Keeping them here for now based on provided layout.css */
-@media screen and (min-width: 451px) {
+@media screen and (min-width: 451px) and (max-width:799px) {
     .layer-video #videoContainer {
         width: 75%;
     }

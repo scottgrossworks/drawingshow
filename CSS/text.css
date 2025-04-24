@@ -28,8 +28,6 @@ span.text_intro {
     display: block; /* Use block or flex for centering within its parent */
     text-align: center;
 
-    transform: translateY(-100px);
-
     padding: 10px;
     /* Removed: margin; - Use flexbox/grid or padding on parent for positioning */
     font-size: 1.2em;
@@ -42,49 +40,26 @@ span.text_intro {
 /* Responsive overrides for text_intro */
 @media screen and (max-width: 460px) {
     span.text_intro {
+        transform: translateY(-5vw);
         width: 95%;
         font-size: 1em;
         letter-spacing: 0.08em;
     }
 }
 
-@media screen and (min-width: 461px) and (max-width: 600px) {
+@media screen and (min-width: 461px) and (max-width: 800px) {
     span.text_intro {
+        transform: translateY(-10vw);
         width: 90%;
-        font-size: 1.4em;
+        font-size: 1.2em;
     }
 }
 
-@media screen and (min-width: 601px) {
+@media screen and (min-width: 801px) {
     span.text_intro {
+        transform: translateY(-15vw);
         width: 80%;
         font-size: 1.5em;
     }
 }
 
-/* Basic styles for booking content within .layer-content */
-.layer-content {
-    color: white; /* Ensure text is white */
-    padding: 20px; /* Add internal padding */
-    box-sizing: border-box;
-}
-
-.layer-content h1,
-.layer-content a,
-.layer-content center div {
-    margin-bottom: 1em; /* Add some spacing below content blocks */
-    /* Ensure text alignment is handled by specific classes or defaults */
-}
-
-.layer-content a {
-    color: cornflowerblue; /* Example link color */
-    text-decoration: none;
-}
-
-/* Ensure images within content are responsive */
-.layer-content img {
-    max-width: 100%;
-    height: auto;
-    display: block;
-    margin-bottom: 1em; /* Add space below images */
-}
