@@ -12,9 +12,7 @@
     height: 55px;
     z-index: var(--layer-header);
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0 15px;
+    justify-content: space-around;
     opacity: 1;
     transition: opacity 0.2s linear;
 }
@@ -24,12 +22,15 @@
   }
 
 
-
 .header-left {
     display: flex;
     align-items: center;
     gap: 15px;
     height: 50px;
+}
+
+.header-spacer {
+    width:30%;
 }
 
 .hamburger {
@@ -70,31 +71,41 @@
 
 .title-that {
     font-size: 12px;
-    line-height: 1;
-    margin-bottom: -3px;
     text-shadow: 2px 2px 2px rgba(0,0,0,0.5);
 }
 
 .title-main {
+    justify-content: end;
+    align-self: first baseline;
     font-size: 24px;
-    line-height: 1;
+    line-height: 0.75;
+    padding:0;
     text-shadow: 2px 2px 2px rgba(0,0,0,0.5);
 }
 
 .title-author {
+
+    min-width: 142px !important;
+    align-self:center;
+    align-items: center;
+
+    line-height:75%;
+
     color: goldenrod;
     font-family: 'Kaufmann-Bold', cursive;
     font-style: oblique;
-    margin: 0 0 -10px 6px;
     font-size: 24px;
     text-shadow: 2px 2px 2px rgba(0,0,0,0.5);
-    display: none;
+    
+    display: flex;
 }
 
 .header-right {
     display: flex;
-    align-items: center;
+    align-self: flex-end;
+    align-items:center;
     gap: 20px;
+    padding-right:5px;
     height: 50px;
 }
 
@@ -112,36 +123,95 @@
     filter: drop-shadow(2px 2px 2px rgba(0,0,0,0.5));
 }
 
-/* Responsive overrides */
-@media screen and (max-width: 460px) {
+#icon-ig {
+    display:none !important;
+}
+
+
+
+/**
+ * MEDIA QUERIES FOR SCREEN SIZES
+ *
+ *
+ */
+@media screen and (max-width: 430px) {
+
+
     .header-right {
-        margin-right: 3px;
-        gap: 12px; 
+        padding-right: 10px;
+        gap: 15px; 
     }
     
-    .header-right a img {
-        height: 90%;
-        width: 90%;
+    .header-spacer {
+        width:30%;
+    }
+ 
+    .header-icon {
+        width: 25px;
+        height: 25px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+ 
+
+    #icon-IG {
+        display: none;
     }
 
     .hamburger {
-        transform: translateX(5px);
         padding-top: 0;
         width: 40px;
         height: 40px;
     }
 
     .title-main {
-        font-size: 18px;
+        font-size: 20px;
+        min-width:100px;
     }
     
     .title-that {
         font-size: 9.6px;
     }
+
 }
 
-@media screen and (min-width: 580px) {
+
+/**
+ * expand spacer
+ * show with Scott Gross 
+ *
+ */
+@media screen and (min-width: 431px) and (max-width:600) {
     .title-author {
         display: inline-block;
+        font-size: 20px;
     }
+
+   
+
+    .header-spacer {
+        width:auto;
+        justify-content: space-around;
+    }
+}
+
+
+/**
+ * DESKTOP SCREENS
+ */
+@media screen and (min-width: 601px) {
+    .title-author {
+        display: inline-block;
+        font-size: 28px;
+    }
+    .header-spacer {
+        width:auto;
+        justify-content: space-around;
+    }
+
+    #icon-IG {
+        display:flex;
+    }
+    
 }

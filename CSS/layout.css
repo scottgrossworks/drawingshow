@@ -1,79 +1,66 @@
-/* layout.css - Base styles and layer layout (Corrected Initial Position and Scrolling) */
-
-/* 1) Import your typography */
-@import url("text.css");
+/*
+Every layer uses your z-index variables.
+*
+.foreground-overlay uses z-index: var(--layer-content); so it is always above the foreground image.
+*
+.foreground-image uses z-index: var(--layer-foreground); and is position: relative; to participate in stacking.
+*
+No hardcoded z-index values like z-index: 2;—all use variables.
+*
+The stacking order is now clear and controlled.
+*/
 
 /* 2) Layer z-index variables */
 :root {
-    --layer-base:      10;
-    --layer-background:20;
-    --layer-video:     30;
-    --layer-header:    40;
-    --layer-foreground:50; /* Main container for foreground and content */
-    --layer-content:   calc(var(--layer-foreground) + 1); /* Content is above foreground image if needed */
-    --layer-footer:    70;
-    --layer-controls:  80; /* Controls are highest within video layer */
-}
-
-/* 3) Reset & box model */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    /* user-select: none; */ /* Removed user-select:none to allow text selection in content */
-}
-
-html, body {
-    height: 100%;
-    overflow-x: hidden;
-    background-color: #000;
-    color: white;
-    /* font-family provided by text.css */
-    /* Ensure body can scroll if content overflows */
-    overflow-y: auto;
+  --layer-base:      10;
+  --layer-background:20;
+  --layer-video:     30;
+  --layer-header:    40;
+  --layer-foreground:50; /* Main container for foreground and content */
+  --layer-content:   51; /* Content is above foreground image if needed */
+  --layer-footer:    70;
+  --layer-controls:  80; /* Controls are highest within video layer */
 }
 
 /* 4) Layer 0: solid black background */
 .layer-base {
-    position: fixed;
-    top: 0; left: 0;
-    width: 100%; height: 100%;
-    background-color: #000;
-    z-index: var(--layer-base);
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background-color: #000;
+  z-index: var(--layer-base);
 }
 
 /* 5) Layer 1: full-screen background image */
 .layer-background {
-    position: fixed;
-    top: 0; left: 0;
-    width: 100%; height: 100%;
-    overflow: hidden;
-    z-index: var(--layer-background);
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  overflow: hidden;
+  z-index: var(--layer-background);
 }
 .layer-background img {
-    width: 100%; height: 100%;
-    object-fit: cover;
+  width: 100%; height: 100%;
+  object-fit: cover;
 }
 
 /* 6) Layer 2: video player */
 .layer-video {
-    position: fixed;
-    top: 60px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    z-index: var(--layer-video);
-    pointer-events: none; /* Allow clicks to pass through the layer */
+  position: fixed;
+  top: 60px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  z-index: var(--layer-video);
+  pointer-events: none;
+}
+.layer-video > div {
+  pointer-events: auto;
 }
 
-.layer-video > div { /* Target the #videoContainer */
-    pointer-events: auto; /* Re-enable pointer events for the video container itself */
-}
-
-
-/* 7) Layer 3: header (transparent bg, fade in) */
+/* 7) Layer 3: header */
 .layer-header {
   position: fixed;
   top: 0; left: 0;
@@ -89,99 +76,83 @@ html, body {
 
 /* 8) Layer 4: Foreground container (PNG + content) */
 .layer-foreground-container {
-    position: absolute;
-    top: 0; /* Position from the top of the document flow */
-    left: 0;
-    width:100vw;
-    /* Position Layer 4 down so only the top ~25% is visible initially */
-    /* 75vh positions the start of the layer 75% down, leaving 25% visible above it */
-    transform: translateY(75vh); /* Adjusted based on the outline's 25% visible requirement */
-    z-index: var(--layer-foreground);
-    overflow: visible; /* Allow content to dictate height and contribute to scrolling */
-    height: auto; /* Height determined by content */
-    background-color: transparent; /* Default to transparent */
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  transform: translateY(75vh); /* Start at 75% down the viewport */
+  z-index: var(--layer-foreground);
+  overflow: visible;
+  height: auto;
+  background-color: transparent;
 }
 
 /* Container for the foreground image and content layered over it */
 .foreground-wrapper {
-    position: relative; /* Needed for absolute positioning of the overlay */
-    width: 100%;
-    height: auto; /* Height defined by the image */
-    /* This wrapper's position within layer-foreground-container will determine where content starts */
+  position: relative;
+  width: 100%;
+  min-height: 100%;
 }
 
 /* 8a) The full foreground PNG */
 .foreground-image {
-    display: block;
-    width: 100%;
-    height: auto;
+  display: block;
+  width: 100%;
+  height: auto;
+  z-index: var(--layer-foreground); /* Ensures image is above container bg */
+  position: relative;
 }
 
 /* 8b) Overlayed intro text container */
 .foreground-overlay {
   position: absolute;
-  top:0;
-  left: 0;
+  top: 0; left: 0;
   width: 100%;
-  height: 100%; /* Cover the image area */
+  height: 100%;
+  overflow-y: auto;
   display: flex;
-  flex-direction: column;      
-  justify-content: center;
+  flex-direction: column;
   align-items: center;
+  justify-content: flex-start;
   padding: 20px;
   box-sizing: border-box;
-  z-index: 1;
-  pointer-events: none;
+  z-index: var(--layer-content); /* Must be above foreground image */
 }
 
-
-
+/* Ensure overlay links are styled */
 .foreground-overlay a {
-  color: cornflowerblue; /* Example link color */
+  color: cornflowerblue;
   text-decoration: none;
   background-color: transparent;
-}
-
-/* Ensure images within content are responsive */
-.layer-content img {
-  max-width: 100%;
-  height: auto;
-  display: block;
 }
 
 /* 8c) Scrolling booking content immediately below PNG */
 .layer-content {
   box-sizing: border-box;
-    background-color: #000; /* Opaque black background */
-  
-    color: white;
-    /* This div follows the foreground-wrapper naturally in the flow */
-    position: relative; /* To ensure z-indexing works relative to its siblings */
-    z-index: 0; /* Below the overlay if needed, or auto */
-
-    margin-top: -1px;
-
-    width: 100%;
-    min-height: 1200px;
+  background-color: #000;
+  color: white;
+  position: relative;
+  z-index: 0; /* Below overlay */
+  margin-top: -1px;
+  width: 100%;
+  min-height: 1200px;
 }
-
 
 /* 9) Layer 5: sticky footer */
 .layer-footer {
-    font-family: 'SpecialRegular', sans-serif; /* Use the regular font for footer text */
-    font-size:smaller;
-    position: fixed;
-    bottom: 0; left: 0;
-    width: 100%;
-    background-color: #000;
-    text-align: center;
-    padding: 10px;
-    z-index: var(--layer-footer);
-    pointer-events: none; /* Allow clicks to pass through the footer layer */
+  font-family: 'SpecialRegular', sans-serif;
+  font-size: smaller;
+  position: fixed;
+  bottom: 0; left: 0;
+  width: 100%;
+  background-color: #000;
+  text-align: center;
+  padding: 10px;
+  z-index: var(--layer-footer);
+  pointer-events: none;
 }
-
-.layer-footer > p { /* Target the footer text */
-    pointer-events: auto; /* Re-enable pointer events for footer content */
+.layer-footer > p {
+  pointer-events: auto;
 }
 
 #pageFooter {
@@ -192,37 +163,4 @@ html, body {
 #pageFooter.visible {
   opacity: 1;
   pointer-events: auto;
-}
-
-
-/*
- * MEDIA QUERIES
- * SCREEN SIZES
- */
-
-@media screen and (max-width:350px) {
-  .layer-foreground-container {
-    width:120vw;
-  }
-
-
-}
-
-
-@media screen and (min-width: 451px) and (max-width:799px) {
-
-  .layer-video #videoContainer {
-        width: 75%;
-    }
-
-
-}
-
-@media screen and (min-width: 800px) {
-
-    .layer-video #videoContainer {
-        max-width: 800px;
-    }
-
-  
 }
