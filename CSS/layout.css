@@ -92,7 +92,7 @@ html, body {
     position: absolute;
     top: 0; /* Position from the top of the document flow */
     left: 0;
-    width: 100%;
+    width:100vw;
     /* Position Layer 4 down so only the top ~25% is visible initially */
     /* 75vh positions the start of the layer 75% down, leaving 25% visible above it */
     transform: translateY(75vh); /* Adjusted based on the outline's 25% visible requirement */
@@ -119,32 +119,27 @@ html, body {
 
 /* 8b) Overlayed intro text container */
 .foreground-overlay {
-    position: absolute;
-    top:0;
-    left: 0;
-    width: 100%;
-    height: 100%; /* Cover the image area */
-    display: flex; /* Use flexbox to center content */
-    justify-content: center; /* Center horizontally */
-    align-items: center; /* Center vertically */
-    padding: 20px; /* Add padding */
-    box-sizing: border-box;
-    z-index: 1; /* Position above the image within the wrapper */
-    pointer-events: none; /* Allow clicks to pass through the overlay container */
-}
-
-.foreground-overlay span.text_intro {
-     pointer-events: auto; /* Re-enable pointer events for the text itself if interactive */
-     /* Styles defined in text.css */
+  position: absolute;
+  top:0;
+  left: 0;
+  width: 100%;
+  height: 100%; /* Cover the image area */
+  display: flex;
+  flex-direction: column;      
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  box-sizing: border-box;
+  z-index: 1;
+  pointer-events: none;
 }
 
 
 
-
-
-.layer-content a {
+.foreground-overlay a {
   color: cornflowerblue; /* Example link color */
   text-decoration: none;
+  background-color: transparent;
 }
 
 /* Ensure images within content are responsive */
@@ -199,15 +194,24 @@ html, body {
   pointer-events: auto;
 }
 
-/* Responsive adjustments for video container width (should be in video_player.css) */
-/* Keeping them here for now based on provided layout.css */
+
+
+@media screen and (max-width:350px) {
+  .layer-foreground-container {
+    width:120vw;
+  }
+}
+
+
 @media screen and (min-width: 451px) and (max-width:799px) {
-    .layer-video #videoContainer {
+
+  .layer-video #videoContainer {
         width: 75%;
     }
 }
 
 @media screen and (min-width: 800px) {
+
     .layer-video #videoContainer {
         max-width: 800px;
     }

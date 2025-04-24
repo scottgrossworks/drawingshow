@@ -19,6 +19,14 @@
 
 
 
+h1 {
+    font-family: "SpecialExpanded";
+    font-size: large;
+    letter-spacing:3px;
+    color:white;
+
+}
+
 
 span.text_intro {
     /* Removed: position: fixed; - Content should scroll with its layer */
@@ -40,26 +48,43 @@ span.text_intro {
 /* Responsive overrides for text_intro */
 @media screen and (max-width: 460px) {
     span.text_intro {
-        transform: translateY(-5vw);
+        transform: translateY(5vw);
         width: 95%;
         font-size: 1em;
-        letter-spacing: 0.08em;
+        letter-spacing: 0.1em;
     }
+
+    
+    h1 {
+        font-size:1.2em;
+        letter-spacing:3px;
+    }
+
 }
 
 @media screen and (min-width: 461px) and (max-width: 800px) {
     span.text_intro {
-        transform: translateY(-10vw);
+        transform: translateY(-2vw);
         width: 90%;
         font-size: 1.2em;
+    }
+
+    h1 {
+        font-size:1.5em;
+        letter-spacing:3px;
     }
 }
 
 @media screen and (min-width: 801px) {
     span.text_intro {
-        transform: translateY(-15vw);
+        transform: translateY(-8vw);
         width: 80%;
         font-size: 1.5em;
+    }
+
+    h1 {
+        font-size:1.65em;
+        letter-spacing:3px;
     }
 }
 
