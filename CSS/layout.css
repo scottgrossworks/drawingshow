@@ -195,15 +195,17 @@ html, body {
 }
 
 
+/*
+ * MEDIA QUERIES
+ * SCREEN SIZES
+ */
 
 @media screen and (max-width:350px) {
   .layer-foreground-container {
     width:120vw;
   }
 
-  .foreground-overlay {
-    margin-top:10vh;
-  }
+
 }
 
 
@@ -213,9 +215,7 @@ html, body {
         width: 75%;
     }
 
-    .foreground-overlay {
-      margin-top:0;
-    }
+
 }
 
 @media screen and (min-width: 800px) {
@@ -224,7 +224,5 @@ html, body {
         max-width: 800px;
     }
 
-    .foreground-overlay {
-      margin-top:-5vh;
-    }
+  
 }
