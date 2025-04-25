@@ -21,6 +21,7 @@
 
 h1 {
     font-family: "SpecialExpanded";
+    background-color: rgba(0, 0, 0, 0.6); 
     font-size: 32px;
     letter-spacing:3px;
     color:white;
@@ -28,6 +29,7 @@ h1 {
 
 
 h2 {
+    background-color: rgba(0, 0, 0, 0.6); 
     font-family: "SpecialRegular";
     font-size: 24px;
     letter-spacing:2px;
@@ -36,11 +38,30 @@ h2 {
 
 /* Ensure overlay links are styled */
 h2 a {
+    font-weight: 600;
     color: cornflowerblue;
     text-decoration: none;
     background-color: transparent;
   }
 
+
+  h3 {
+    width:80%;
+    font-family: "SpecialRegular";
+    font-size: 18px;
+    letter-spacing:1.25px;
+    color:white;
+}
+
+h4 {
+    align-self:start;
+    margin-left:10vw;
+    margin-bottom:-10px;
+    font-family: "SpecialExpanded";
+    font-size: 25px;
+    letter-spacing:3px;
+    color:gold;
+}
 
 /* Responsive overrides for text_intro */
 @media screen and (max-width: 460px) {
