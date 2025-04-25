@@ -107,24 +107,19 @@ The stacking order is now clear and controlled.
 .foreground-overlay {
   position: absolute;
   top: 0; left: 0;
-  width: 100%;
+  width: 100vw;
   height: 100%;
   overflow-y: auto;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: flex-start;
-  padding: 20px;
+  padding:20px;
+  margin-top:10vh;
   box-sizing: border-box;
   z-index: var(--layer-content); /* Must be above foreground image */
 }
 
-/* Ensure overlay links are styled */
-.foreground-overlay a {
-  color: cornflowerblue;
-  text-decoration: none;
-  background-color: transparent;
-}
+
 
 /* 8c) Scrolling booking content immediately below PNG */
 .layer-content {
@@ -144,7 +139,9 @@ The stacking order is now clear and controlled.
   font-size: smaller;
   position: fixed;
   bottom: 0; left: 0;
-  width: 100%;
+  width: 95%;
+  letter-spacing:1px;
+  color:white;
   background-color: #000;
   text-align: center;
   padding: 10px;
@@ -164,3 +161,50 @@ The stacking order is now clear and controlled.
   opacity: 1;
   pointer-events: auto;
 }
+
+
+
+
+
+span.text_intro {
+  background-color: rgba(0, 0, 0, 0.7); 
+  font-family: "SpecialExpanded", sans-serif; 
+
+  display: block;
+  
+  text-align:center;
+  padding: 10px;
+  font-size: 1.2em;
+  color: goldenrod;
+  letter-spacing:1.25px;
+  border-radius: 8px;
+  box-sizing: border-box;
+}
+
+/* Responsive overrides for text_intro */
+@media screen and (max-width: 460px) {
+  span.text_intro {
+      transform: translateY(5vw);
+      width: 95%;
+      font-size: 1em;
+      letter-spacing: 0.1em;
+  }
+}
+
+@media screen and (min-width: 461px) and (max-width: 800px) {
+  span.text_intro {
+      transform: translateY(-2vw);
+      width: 85%;
+      font-size: 1.2em;
+  }
+}
+
+@media screen and (min-width: 801px) {
+  span.text_intro {
+      transform: translateY(-8vw);
+      width: 80%;
+      font-size: 1.5em;
+  }
+
+}
+

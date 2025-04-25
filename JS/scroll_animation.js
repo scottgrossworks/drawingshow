@@ -3,6 +3,10 @@
 class ParallaxScroller {
     constructor() {
         this.foregroundContainer = document.querySelector('.layer-foreground-container');
+
+        this.layerBackground = document.querySelector('.layer-background');
+        this.videoPlayer = document.querySelector('.layer-video');
+
         this.header = document.querySelector('.layer-header');
 
         if (!this.foregroundContainer || !this.header) {
@@ -51,8 +55,18 @@ class ParallaxScroller {
         // console.log(`scrollY: ${scrollY}, foregroundY: ${foregroundY}`);
 
         let headerOpacity = 1;
+        
+        this.layerBackground.style.opacity = 1;
+        this.videoPlayer.style.opacity = 1;
+
         if (foregroundY <= this.FADE_END) {
             headerOpacity = 0;
+
+            // ALSO DISAPPEAR THE VIDEO AND BACKGROUND
+            this.layerBackground.style.opacity = 0;
+            this.videoPlayer.style.opacity = 0;
+
+
         } else if (foregroundY < this.FADE_START) {
             headerOpacity = (foregroundY - this.FADE_END) / (this.FADE_START - this.FADE_END);
         }

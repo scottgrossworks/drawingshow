@@ -21,39 +21,30 @@
 
 h1 {
     font-family: "SpecialExpanded";
-    font-size: large;
+    font-size: 32px;
     letter-spacing:3px;
     color:white;
-
 }
 
 
-span.text_intro {
-    /* Removed: position: fixed; - Content should scroll with its layer */
-    background-color: rgba(0, 0, 0, 0.7); /* Add a slight background for readability over image */
-    font-family: "SpecialExpanded", sans-serif; /* Use the condensed font for the intro text */
-    width: 90%; /* Adjust width to fit better within a flexible container */
-    display: block; /* Use block or flex for centering within its parent */
-    text-align: center;
-
-    padding: 10px;
-    /* Removed: margin; - Use flexbox/grid or padding on parent for positioning */
-    font-size: 1.2em;
-    color: goldenrod;
-    /* Removed: z-index: 900; - Layering is handled by the layer structure */
-    border-radius: 8px;
-    box-sizing: border-box;
+h2 {
+    font-family: "SpecialRegular";
+    font-size: 24px;
+    letter-spacing:2px;
+    color:goldenrod;
 }
+
+/* Ensure overlay links are styled */
+h2 a {
+    color: cornflowerblue;
+    text-decoration: none;
+    background-color: transparent;
+  }
+
 
 /* Responsive overrides for text_intro */
 @media screen and (max-width: 460px) {
-    span.text_intro {
-        transform: translateY(5vw);
-        width: 95%;
-        font-size: 1em;
-        letter-spacing: 0.1em;
-    }
-
+ 
     
     h1 {
         font-size:1.2em;
@@ -63,11 +54,7 @@ span.text_intro {
 }
 
 @media screen and (min-width: 461px) and (max-width: 800px) {
-    span.text_intro {
-        transform: translateY(-2vw);
-        width: 90%;
-        font-size: 1.2em;
-    }
+
 
     h1 {
         font-size:1.5em;
@@ -76,11 +63,7 @@ span.text_intro {
 }
 
 @media screen and (min-width: 801px) {
-    span.text_intro {
-        transform: translateY(-8vw);
-        width: 80%;
-        font-size: 1.5em;
-    }
+
 
     h1 {
         font-size:1.65em;

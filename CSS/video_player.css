@@ -83,13 +83,32 @@
 }
 
 /* Responsive styles */
-@media screen and (min-width: 451px) {
+
+@media screen and (max-width: 450px) {
+    
+    /* Stack controls vertically on the right side */
+    #prevBtn {
+        right: 8vw;                 
+    }
+
+    #nextBtn {
+        right: 8vw;                 
+    }
+   
+
+    #volumeBtn {
+        right: 5vw;                 
+    }
+}
+
+
+@media screen and (min-width: 451px) and (max-width:800px) {
     #videoContainer {
         width: 75%;
     }
 }
 
-@media screen and (min-width: 800px) {
+@media screen and (min-width: 801px) {
     #videoContainer {
         max-width: 800px;
     }
