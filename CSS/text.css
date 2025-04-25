@@ -63,6 +63,11 @@ h4 {
     color:gold;
 }
 
+h4 a {
+    text-decoration:none;
+    color:goldenrod;
+    margin: 0 10vw 0 auto;
+}
 /* Responsive overrides for text_intro */
 @media screen and (max-width: 460px) {
  

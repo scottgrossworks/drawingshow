@@ -115,7 +115,7 @@ The stacking order is now clear and controlled.
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 20px;
+    padding: 20px 0 100px 0;
 
     margin-top:10vh;
 
