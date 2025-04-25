@@ -133,11 +133,12 @@ The stacking order is now clear and controlled.
 
 .foreground-overlay table {
   max-width:600px;
-  width:80%;
-  margin:0 auto;
+  margin-left:auto;
+  margin-right:auto;
 }
 .foreground-overlay table td {
   padding:10px;
+  max-width:200px;
 }
 
 .foreground-overlay table img {
@@ -199,25 +200,25 @@ div.YT_desk {
 .layer-footer {
   font-family: 'SpecialRegular', sans-serif;
   font-size: smaller;
+  font-weight:600;
   position: fixed;
   bottom: 0; left: 0;
-  width: 95%;
+  text-align: left;
+  width: 101%;
   letter-spacing:1px;
   color:white;
   background-color: #000;
-  text-align: center;
-  padding: 10px;
+
+  padding:10px 20px 0 5px;
   z-index: var(--layer-footer);
   pointer-events: none;
 }
-.layer-footer > p {
-  pointer-events: auto;
-}
+
 
 #pageFooter {
   opacity: 0;
-  pointer-events: none;
   transition: opacity 0.3s;
+  pointer-events: none;
 }
 #pageFooter.visible {
   opacity: 1;
@@ -246,7 +247,7 @@ span.text_intro {
 /* Responsive overrides for text_intro */
 @media screen and (max-width: 460px) {
   span.text_intro {
-      transform: translateY(5vw);
+      transform: translateY(-2vh);
       width: 95%;
       font-size: 1em;
       letter-spacing: 0.1em;
