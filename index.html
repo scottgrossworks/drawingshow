@@ -6,6 +6,7 @@
     <title>That Drawing Show</title>
     <link rel="icon" href="IMG/favicon.png" type="image/x-icon">
     <link rel="stylesheet" href="CSS/text.css" type="text/css">
+    <link rel="stylesheet" href="CSS/hamburger.css" type="text/css">
     <link rel="stylesheet" href="CSS/layout.css" type="text/css">
     <link rel="stylesheet" href="CSS/header.css" type="text/css">
     <link rel="stylesheet" href="CSS/video_player.css" type="text/css">
@@ -28,12 +29,32 @@
             <div id="volumeBtn" class="video-nav-button"></div>
         </div>
     </div>
-    
+
+
+
+
+
+
     <!-- Layer 3: Header Layer -->
     <div class="layer-header">
         <div class="header-left">
-            <div class="hamburger">
+            <div class="hamburger"> <!-- HAMBURGER -->
                 <span></span><span></span><span></span>
+                    <!-- Hamburger menu links -->
+                    <div class="hamburger-menu">
+                    <ul>
+                        <li><a href="http://scottgross.works">Home</a></li>
+
+                        <li><a href="#anchor_chars">Caricatures</a></li>
+                        <li><a href="#anchor_comm">Commissions</a></li>
+                        <li><a href="#anchor_theme">Theme Parties</a></li>
+                        <li><a href="#anchor_color">Coloring</a></li>
+
+                        <li><a href="http://theleedz.com">TheLeedz</a></li>
+
+                        <li><a href="#anchor_contact">Contact</a></li>
+                    </ul>
+                    </div>
             </div>
             <div class="site-title">
                 <div class="title-wrapper">
@@ -44,7 +65,7 @@
             </div>
         </div>
         <div class="header-spacer"></div>
-        <div class="header-right">
+        <div class="header-right"> 
             <a href="#" class="header-icon" id="icon-IG" title="Instagram"><img src="IMG/IG_logo.svg" alt="Instagram"></a>
             <a href="#" class="header-icon" id="icon-email" title="Email"><img src="IMG/email.svg" alt="Email"></a>
             <a href="#" class="header-icon" id="icon-phone" title="Phone"><img src="IMG/phone_1.svg" alt="Phone"></a>
@@ -53,6 +74,7 @@
     
 <!-- Layer 4: Foreground + Booking Content -->
     <div class="layer-foreground-container">
+ 
         <!-- 4a: PNG window -->
         <div class="foreground-wrapper">
             <img src="IMG/tds_foreground.png" class="foreground-image" alt="That Drawing Show Foreground">
@@ -63,7 +85,8 @@
                 <span class="text_intro">
                     <a style='color:white'>That Drawing Show</a>&nbsp;is premium caricature entertainment for audiences of all ages.
                 </span>
-                
+                <BR>
+
                  <h1>3&nbsp;1&nbsp;0&nbsp;-&nbsp;9&nbsp;8&nbsp;0&nbsp;-&nbsp;1&nbsp;4&nbsp;2&nbsp;1</h1>
 
                  <h2><a href="mailto:scottgrossworks@gmail.com">scottgrossworks@gmail.com</a></h2>
@@ -82,7 +105,7 @@
                 <h4>Caricatures</h4>
                 	<h3>
                         Make everyone at your party feel like a 
-                            <a style='color:gold;font-weight:600'>STAR, for 5 minutes each</a>.   
+                        <a style='color:gold;font-weight:600'>STAR, for 5 minutes each</a>.   
                     
                         I bring everything I need to create an authentic caricature booth, including my own chair and lighting. 
 
@@ -145,20 +168,19 @@
 
                         <BR>
 
-                            <center>
+                        <center>
 
                         <div class="YT_desk">
                             <iframe width="315" height="560" src="https://www.youtube.com/embed/tVKcJoHSbGc" title="That Drawing Show" frameborder="0" 
                             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
                         </div>
                     
-                    
                         <div class="YT_mob">
                             <iframe width="250" height="444" src="https://www.youtube.com/embed/tVKcJoHSbGc" title="That Drawing Show" frameborder="0" 
                             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
                         </div>
 
-                            </center>
+                        </center>
 
                         <BR>
 
@@ -413,6 +435,15 @@
                             <BR>    
                         </div>
 
+                        <center>
+                        <a name="anchor_contact"></a>
+                        <h1>3&nbsp;1&nbsp;0&nbsp;-&nbsp;9&nbsp;8&nbsp;0&nbsp;-&nbsp;1&nbsp;4&nbsp;2&nbsp;1</h1>
+                            
+                        <h2><a href="mailto:scottgrossworks@gmail.com">scottgrossworks@gmail.com</a></h2>
+
+                        <h2><i><a href="http://instagram.com/thatdrawingshow">@thatdrawingshow</a></i></h2>
+                        </center>
+       
                         <!-- BACK TO TOP -->
                         <center><h4><a href="#anchor_top">Back to Top</a></h4></center>
             </div>
@@ -426,6 +457,7 @@
             commercial purposes without written permission.
     </div>
 
+    <script src="JS/hamburger.js"></script>
     <script src="JS/video_player.js"></script>
     <script src="JS/scroll_animation.js"></script>    
 </body>

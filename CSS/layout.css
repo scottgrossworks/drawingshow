@@ -203,13 +203,13 @@ div.YT_desk {
   font-weight:600;
   position: fixed;
   bottom: 0; left: 0;
-  text-align: left;
+  text-align: center;
   width: 101%;
   letter-spacing:1px;
   color:white;
   background-color: #000;
 
-  padding:10px 20px 0 5px;
+  padding:20px;
   z-index: var(--layer-footer);
   pointer-events: none;
 }
@@ -252,6 +252,10 @@ span.text_intro {
       font-size: 1em;
       letter-spacing: 0.1em;
   }
+
+  .layer-footer {
+    width:90%;
+}
 }
 
 @media screen and (min-width: 461px) and (max-width: 800px) {
@@ -260,11 +264,16 @@ span.text_intro {
       width: 85%;
       font-size: 1.2em;
   }
+
+
+  .layer-footer {
+      width:92%;
+  }
 }
 
-@media screen and (min-width: 801px) {
+@media screen and (min-width: 801px) and (max-width:1300px) {
   span.text_intro {
-      transform: translateY(-8vw);
+      transform: translateY(2vw);
       width: 80%;
       font-size: 1.5em;
   }
@@ -277,5 +286,25 @@ span.text_intro {
   div.YT_desk {
     display:block;
   }
+
+  .foreground-overlay img {
+    max-width: 70%;
+  }
+
+}
+
+
+  
+
+@media screen and (min-width: 1301px) {
+  span.text_intro {
+      transform: translateY(0);
+      width: 65%;
+      font-size: 1.5em;
+      background-color: rgba(0, 0, 0, 0.4); 
+  }
+
+
+
 }
 
