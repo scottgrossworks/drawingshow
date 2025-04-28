@@ -104,3 +104,10 @@ window.addEventListener('resize', adjustVideoSize);
 
 // Initialize when DOM is ready
 document.addEventListener('DOMContentLoaded', initVideoPlayer);
+
+
+// Add user interaction to enable sound
+document.addEventListener('click', function() {
+    const video = document.querySelector('video');
+    video.muted = false;
+});

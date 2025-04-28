@@ -260,7 +260,7 @@ span.text_intro {
 
 @media screen and (min-width: 461px) and (max-width: 800px) {
   span.text_intro {
-      transform: translateY(-2vw);
+      transform: translateY(0vw);
       width: 85%;
       font-size: 1.2em;
   }
