@@ -111,3 +111,24 @@ document.addEventListener('click', function() {
     const video = document.querySelector('video');
     video.muted = false;
 });
+
+document.addEventListener('DOMContentLoaded', function() {
+    const video = document.getElementById('randomVideoPlayer');
+    const loadingOverlay = document.getElementById('loadingOverlay');
+
+    // Show loading overlay when starting to load
+    video.addEventListener('loadstart', function() {
+        loadingOverlay.classList.add('visible');
+    });
+
+    // Hide loading overlay when video can play
+    video.addEventListener('canplay', function() {
+        loadingOverlay.classList.remove('visible');
+    });
+
+    // Also handle errors
+    video.addEventListener('error', function() {
+        loadingOverlay.classList.remove('visible');
+    });
+
+});
