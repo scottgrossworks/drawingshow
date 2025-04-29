@@ -73,18 +73,29 @@ async function initVideoPlayer() {
     }
 }
 
+
+
 function showVideo(index) {
     const videoPlayer = document.getElementById('randomVideoPlayer');
     const container = document.getElementById('videoContainer');
     const videoName = videosData[index].name;
 
     videoPlayer.src = `VID/${videoName}`;
+    
+    // Replace the existing container.style.display line with:
     container.style.display = 'block';
+    // Add a small delay before setting opacity to ensure display: block has taken effect
+    setTimeout(() => {
+        container.style.opacity = '1';
+    }, 50);
+    
     videoPlayer.load();
     videoPlayer.play().catch(err => {
         console.warn('Autoplay Error:', err);
     });
 }
+
+
 
 function adjustVideoSize() {
     const videoContainer = document.getElementById('videoContainer');
@@ -116,19 +127,16 @@ document.addEventListener('DOMContentLoaded', function() {
     const video = document.getElementById('randomVideoPlayer');
     const loadingOverlay = document.getElementById('loadingOverlay');
 
-    // Show loading overlay when starting to load
-    video.addEventListener('loadstart', function() {
-        loadingOverlay.classList.add('visible');
-    });
+
 
     // Hide loading overlay when video can play
     video.addEventListener('canplay', function() {
-        loadingOverlay.classList.remove('visible');
+        loadingOverlay.style.display = 'none';
     });
 
     // Also handle errors
     video.addEventListener('error', function() {
-        loadingOverlay.classList.remove('visible');
+        loadingOverlay.style.display = 'none';
     });
 
 });

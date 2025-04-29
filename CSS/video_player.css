@@ -117,21 +117,17 @@
 
 
 #loadingOverlay {
-    position: absolute;
-    top: 25vh;
-    left: 10vw;
-    width: 90%;
-    height: 90%;
-    display: absolute;
+    position: fixed;
+    top: -20px;                
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    height: 60vh;          /* Changed to 60vh to make it appear higher */
+    display: flex;
     justify-content: center;
     align-items: center;
-    opacity: 0;
-    transition: opacity 0.4s ease-in-out;
-    z-index: 1;
-}
-
-#loadingOverlay.visible {
-    opacity: 1;
+    z-index: 1000;
+    transition: opacity 0.3s linear;
 }
 
 #loadingOverlay img {
